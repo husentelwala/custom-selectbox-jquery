@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<style>
+.custom-select-box p { margin:0px; padding:0px; }
+.custom-select-box:before  { position:absolute; right:10px; content:''; height:4px; width:7px; top:11px; }
+.custom-select-box { background: url("images/select-arrow-new.png") no-repeat 98% center; position: relative; height:40px; line-height: 40px; width:300px; border:1px solid #f1f1f1; padding:0px 6px; }
+.custom-select-box:hover { border:1px solid #d7d7d7 }
+.custom-select-box select { height: 100%; left: 0; top: 3px; position: absolute; width: 100%; z-index: 11;
+-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=00)"; filter: alpha(opacity=00); -moz-opacity:0.0; -khtml-opacity: 0.0; opacity: 0.0; zoom: 1; 
+-webkit-appearance: none;}
+.custom-select-box span { height:40px; line-height: 40px;  display:block; font-size:14px; color:#444;  }
+</style>
+</head>
+<body>
+<form method="get">
+<div style="width:300px">
+    <div class="custom-select-box">
+    	<div>
+        <p> </p>
+        <a href=""> </a>
+        <div>
+        <div>
+        <div>
+    	<select name="country"><option value="-1">Please select country</option><option value="Afghanistan">Afghanistan</option><option value="Aland">Aland Islands</option><option value="Albania">Albania</option></select>  
+        </div>
+        </div>
+        </div>
+        </div>
+    </div>
+    <br>
+<br>
+
+     <div class="custom-select-box">
+    	<select name="test"><option value="-1">Please select test</option><option value="test1">test 1</option><option value="test2">test 2</option><option value="test3">test 3</option></select>  
+    </div>
+    <br>
+<br>
+
+ <div class="custom-select-box">
+    	<select name="option"><option value="-1">Please select option</option><option value="option1">option 1</option><option value="option2">option 2</option><option value="option3">option 3</option></select>  
+    </div>
+</div>
+<input type="submit">
+</form>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".custom-select-box").append('<span></span>');
+	$(".custom-select-box").each(function()
+	{
+		$(this).find('span').text($(this).find("select option:selected").text());
+	});
+	$('.custom-select-box select').change(function()
+	{
+		$selected_val=($(this).val());
+		$(this).closest('.custom-select-box').find('span').text($(this).closest('.custom-select-box').find("select option:selected").text());
+	});
+});
+</script>
+
+</body>
+</html>                
+           
+  
+
+
+
